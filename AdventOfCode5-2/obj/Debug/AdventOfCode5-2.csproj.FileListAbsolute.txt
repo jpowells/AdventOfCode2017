@@ -1,0 +1,6 @@
+C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode5-2\bin\Debug\AdventOfCode5-2.exe.config
+C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode5-2\bin\Debug\AdventOfCode5-2.exe
+C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode5-2\bin\Debug\AdventOfCode5-2.pdb
+C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode5-2\obj\Debug\AdventOfCode5-2.csproj.CoreCompileInputs.cache
+C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode5-2\obj\Debug\AdventOfCode5-2.exe
+C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode5-2\obj\Debug\AdventOfCode5-2.pdb
