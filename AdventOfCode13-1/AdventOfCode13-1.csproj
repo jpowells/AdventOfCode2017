@@ -7,7 +7,7 @@
     <ProjectGuid>{FE6CBF77-33AE-4442-8C0A-8B45504CB91E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>AdventOfCode13_1</RootNamespace>
-    <AssemblyName>AdventOfCode13_1</AssemblyName>
+    <AssemblyName>AdventOfCode13-1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="myInput.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
