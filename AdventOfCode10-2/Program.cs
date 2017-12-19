@@ -5,12 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace AdventOfCode10_2
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+namespace AdventOfCode10_2 {
+    class Program {
+        static void Main(string[] args) {
 
             string filePath = @"C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode10-1\Input.txt";
             int[] myLengths = LoadLengthsFromFile(filePath);
@@ -19,16 +16,13 @@ namespace AdventOfCode10_2
             int[] myArray = new int[256];
 
             //Create the initial array.
-            for (int i = 0; i < myArray.Length; i++)
-            {
+            for (int i = 0; i < myArray.Length; i++) {
                 myArray[i] = i;
             }
 
             //Create the sparse hash(stored in myArray)
-            for (int k = 0; k < 64; k++)
-            {
-                for (int i = 0; i < myLengths.Length; i++)
-                {
+            for (int k = 0; k < 64; k++) {
+                for (int i = 0; i < myLengths.Length; i++) {
 
                     myArray = TieKnot(myArray, currentIndex, myLengths[i]);
                     currentIndex += myLengths[i];
@@ -42,16 +36,12 @@ namespace AdventOfCode10_2
 
             int xor = 0;
 
-            for(int i = 0; i<denseHash.Length; i++)
-            {
-                for(int j = 0 + (16*i); j< 16 + (16*i); j++)
-                {
-                    if(j == 16*i)
-                    {
+            for (int i = 0; i < denseHash.Length; i++) {
+                for (int j = 0 + (16 * i); j < 16 + (16 * i); j++) {
+                    if (j == 16 * i) {
                         xor = myArray[j];
                     }
-                    else
-                    {
+                    else {
                         xor = xor ^ myArray[j];
                     }
                 }
@@ -61,16 +51,14 @@ namespace AdventOfCode10_2
             }
 
             //Write "denseHash" to the console.
-            for (int i = 0; i < denseHash.Length; i++)
-            {
+            for (int i = 0; i < denseHash.Length; i++) {
                 Console.Write(denseHash[i].ToString("X2") + " ");
             }
             Console.ReadKey();
 
         }
 
-        static int[] TieKnot(int[] myArray, int currentIndex, int myLength)
-        {
+        static int[] TieKnot(int[] myArray, int currentIndex, int myLength) {
             int maxIndex = currentIndex + myLength - 1;
             int reverseLength = myLength;
 
@@ -78,11 +66,9 @@ namespace AdventOfCode10_2
             int reversalIndex = 0;
             int myArrayIndex = currentIndex;
 
-            for (int i = currentIndex; i <= maxIndex; i++)
-            {
+            for (int i = currentIndex; i <= maxIndex; i++) {
                 myArrayIndex = i;
-                while (myArrayIndex >= myArray.Length)
-                {
+                while (myArrayIndex >= myArray.Length) {
                     myArrayIndex -= myArray.Length;
                 }
                 reversalArray[reversalIndex] = myArray[myArrayIndex];
@@ -94,11 +80,9 @@ namespace AdventOfCode10_2
 
             reversalIndex = 0;
 
-            for (int i = currentIndex; i <= maxIndex; i++)
-            {
+            for (int i = currentIndex; i <= maxIndex; i++) {
                 myArrayIndex = i;
-                while (myArrayIndex >= myArray.Length)
-                {
+                while (myArrayIndex >= myArray.Length) {
                     myArrayIndex -= myArray.Length;
                 }
                 myArray[myArrayIndex] = reversalArray[reversalIndex];
@@ -108,16 +92,12 @@ namespace AdventOfCode10_2
             return myArray;
         }
 
-        static int[] LoadLengthsFromFile(string filePath)
-        {
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                while (!sr.EndOfStream)
-                {
+        static int[] LoadLengthsFromFile(string filePath) {
+            using (StreamReader sr = new StreamReader(filePath)) {
+                while (!sr.EndOfStream) {
                     string textLine = sr.ReadLine();
                     int[] result = new int[textLine.Length + 5];
-                    for (int i = 0; i < textLine.Length; i++)
-                    {
+                    for (int i = 0; i < textLine.Length; i++) {
                         result[i] = textLine[i];
                     }
 
