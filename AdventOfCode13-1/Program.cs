@@ -10,7 +10,8 @@ namespace AdventOfCode13_1
     class Program
     {
         static int CurrentTime = 0;
-        static int tripSeverity = 0;
+        static int TripSeverity = 0;
+        static bool Caught = false;
 
         static void Main(string[] args)
         {
@@ -42,25 +43,62 @@ namespace AdventOfCode13_1
             //Move forward until you reach maxTime
             while(CurrentTime <= maxTime)
             {
-                MoveForward(myFirewalls);
+                MoveForward(myFirewalls,0);
             }
 
-            Console.WriteLine("Finished! Trip Severity: " + tripSeverity.ToString());
+
+            
+            Console.WriteLine("Finished! 0 ps departure Trip Severity: " + TripSeverity.ToString());
+            Console.WriteLine("Caught: " + Caught.ToString());
+            Console.ReadKey();
+
+            int offset = 1;
+            while(true)
+            {
+                //Reset certain variables and apply an offset.
+                CurrentTime = 0 + offset;
+                int offsetMaxTime = maxTime + offset;
+                TripSeverity = 0;
+                Caught = false;
+
+                while (CurrentTime <= offsetMaxTime)
+                {
+                    MoveForward(myFirewalls, offset);
+                    //Early break to save time.
+                    if(Caught)
+                    {
+                        break;
+                    }
+                }
+
+                //Provide a break condition.
+                if(!Caught)
+                {
+                    break;
+                }
+                else
+                {
+                    offset++;
+                }
+            }
+
+            Console.WriteLine("Offset required for 0 Trip Severity : " + offset.ToString());
             Console.ReadKey();
         }
 
-        static void MoveForward(List<Firewall> myFirewalls)
+        static void MoveForward(List<Firewall> myFirewalls, int offset)
         {
             //Using current time, identify if a firewall exists on that node.
-            Firewall currentFirewall = myFirewalls.FirstOrDefault(x => x.Depth == CurrentTime);
+            Firewall currentFirewall = myFirewalls.FirstOrDefault(x => x.Depth == CurrentTime - offset);
 
             //if we found one, check if it's at the top of its cycle (i.e. Location returns 1)
             if(currentFirewall!=null)
             {
                 //If it is at the top of its cycle, add its Severity to the static tripSeverity.
-                if(currentFirewall.Location(CurrentTime) == 0)
+                if(currentFirewall.Catches(CurrentTime))
                 {
-                    tripSeverity += currentFirewall.Severity;
+                    Caught = true;
+                    TripSeverity += currentFirewall.Severity;
                 }
             }
 
@@ -120,22 +158,33 @@ namespace AdventOfCode13_1
         public int Location(int timeElapsed)
         {
             //calculate a full cycle, then figure out where in the cycle we are.
-            int cycle = 2 * (range - 1);
+            int cycleLength = 2 * (range - 1);
             int counterValue = timeElapsed;
-            while(counterValue > cycle)
+            while(counterValue >= cycleLength)
             {
-                counterValue -= cycle;
+                counterValue -= cycleLength;
             }
 
             //when the counterValue is larger than half the cycle, we do a calculation to find its actual location(1 is the top level, range is the bottom level)
-            if(counterValue > cycle/2)
+            if(counterValue > cycleLength/2)
             {
-                return(cycle - counterValue);
+                return(cycleLength - counterValue);
             }
             else
             {
                 return counterValue;
             }
+        }
+
+        //returns whether it will catch you at a given time
+        public bool Catches(int timeElapsed)
+        {
+            int cycleLength = 2 * (range - 1);
+            if (timeElapsed % cycleLength == 0)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 }
