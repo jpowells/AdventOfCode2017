@@ -4,3 +4,11 @@ C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode10-2\bin\Debug\AdventOfCo
 C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode10-2\obj\Debug\AdventOfCode10-2.csproj.CoreCompileInputs.cache
 C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode10-2\obj\Debug\AdventOfCode10-2.exe
 C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode10-2\obj\Debug\AdventOfCode10-2.pdb
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode10-2\bin\Debug\AdventOfCode10-2.exe.config
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode10-2\bin\Debug\AdventOfCode10-2.exe
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode10-2\bin\Debug\AdventOfCode10-2.pdb
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode10-2\bin\Debug\AdventOfCode10-2.exe.CodeAnalysisLog.xml
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode10-2\bin\Debug\AdventOfCode10-2.exe.lastcodeanalysissucceeded
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode10-2\obj\Debug\AdventOfCode10-2.csproj.CoreCompileInputs.cache
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode10-2\obj\Debug\AdventOfCode10-2.exe
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode10-2\obj\Debug\AdventOfCode10-2.pdb
