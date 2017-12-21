@@ -9,59 +9,7 @@ namespace AdventOfCode10_2
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-
-            string filePath = @"C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode10-1\Input.txt";
-            int[] myLengths = LoadLengthsFromFile(filePath);
-            int skipLength = 0;
-            int currentIndex = 0;
-            int[] myArray = new int[256];
-
-            //Create the initial array.
-            for (int i = 0; i < myArray.Length; i++) {
-                myArray[i] = i;
-            }
-
-            //Create the sparse hash(stored in myArray)
-            for (int k = 0; k < 64; k++) {
-                for (int i = 0; i < myLengths.Length; i++) {
-
-                    myArray = TieKnot(myArray, currentIndex, myLengths[i]);
-                    currentIndex += myLengths[i];
-                    currentIndex += skipLength;
-                    skipLength++;
-                }
-            }
-
-            //Create the dense hash
-            int[] denseHash = new int[16];
-
-            int xor = 0;
-
-            for (int i = 0; i < denseHash.Length; i++) {
-                for (int j = 0 + (16 * i); j < 16 + (16 * i); j++) {
-                    if (j == 16 * i) {
-                        xor = myArray[j];
-                    }
-                    else {
-                        xor = xor ^ myArray[j];
-                    }
-                }
-
-                denseHash[i] = xor;
-
-            }
-
-            //Write "denseHash" to the console.
-            for (int i = 0; i < denseHash.Length; i++) {
-                Console.Write(denseHash[i].ToString("X2") + " ");
-            }
-            Console.ReadKey();
-
-        }
-
-        static string ConvertStringToKnotHash(string input)
+        public static string ConvertStringToKnotHash(string input)
         {
 
             int[] myLengths = LoadLengthsFromString(input);

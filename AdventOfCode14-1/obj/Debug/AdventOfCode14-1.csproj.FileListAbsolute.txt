@@ -1,0 +1,7 @@
+C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode14-1\bin\Debug\AdventOfCode14-1.exe.config
+C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode14-1\bin\Debug\AdventOfCode14-1.exe
+C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode14-1\bin\Debug\AdventOfCode14-1.pdb
+C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode14-1\obj\Debug\AdventOfCode14-1.csproj.CoreCompileInputs.cache
+C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode14-1\obj\Debug\AdventOfCode14-1.exe
+C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode14-1\obj\Debug\AdventOfCode14-1.pdb
+C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode14-1\obj\Debug\AdventOfCode14-1.csprojResolveAssemblyReference.cache
