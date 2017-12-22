@@ -47,7 +47,59 @@ namespace AdventOfCode14_1
                 usedSquares += CountOnes(bits);
             }
             Console.WriteLine("Used squares: " + usedSquares.ToString());
+
+            int[,] myBitMatrix = ConvertStringBitListToMatrix(myByteInputs);
+
+            int groups = FloodFill(myBitMatrix);
+            Console.WriteLine("Groups: " + groups.ToString());
             Console.ReadKey();
+        }
+
+        static int FloodFill(int[,] matrix) {
+            int groupcount = 0;
+            for(int i = 0; i < 128; i++) {
+                for(int j = 0; j < 128; j++) {
+                    if(matrix[j,i] == 1) {
+                        groupcount++;
+                        Extinguish(j, i, matrix);
+                    }
+                }
+            }
+            return groupcount;
+        }
+
+        static void Extinguish(int x, int y, int[,] matrix) {
+            matrix[x, y] = 0;
+            if(x+1 < 128) {
+                if(matrix[x+1,y] == 1) {
+                    Extinguish(x + 1, y, matrix);
+                }
+            }
+            if(x-1 >= 0) {
+                if(matrix[x-1,y] == 1) {
+                    Extinguish(x - 1, y, matrix);
+                }
+            }
+            if(y+1 < 128) {
+                if(matrix[x,y+1] == 1) {
+                    Extinguish(x, y + 1, matrix);
+                }
+            }
+            if(y-1 >= 0) {
+                if (matrix[x, y - 1] == 1) {
+                    Extinguish(x, y - 1, matrix);
+                }
+            }
+        }
+
+        static int[,] ConvertStringBitListToMatrix(List<string> input) {
+            int[,] result = new int[128, 128];
+            for(int i = 0; i < 128; i++) {
+                for(int j = 0; j < input[i].Length; j++) {
+                    result[j, i] = Int32.Parse(input[j][i].ToString());
+                }
+            }
+            return result;
         }
 
         static int CountOnes(string bitSequence)
