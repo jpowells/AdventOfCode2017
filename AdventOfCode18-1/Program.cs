@@ -29,8 +29,98 @@ namespace AdventOfCode18_1 {
 
         static bool ParseCommand(string command) {
             bool result = false;
+            string[] myCommand = command.Split(' ');
+            int value = 0;
+            char register = char.Parse(myCommand[1]);
+            switch(myCommand[0]) {
+                case "set":
+                    if (Int32.TryParse(myCommand[2], out value)) {
+                        SET(register, value);
+                        break;
+                    }
+                    else {
+                        char register2 = char.Parse(myCommand[2]);
+                        SET(register, MyNotes[register2]);
+                        break;
+                    }
+                case "add":
+                    if (Int32.TryParse(myCommand[2], out value)) {
+                        ADD(register, value);
+                        break;
+                    }
+                    else {
+                        char register2 = char.Parse(myCommand[2]);
+                        ADD(register, MyNotes[register2]);
+                        break;
+                    }
+                case "mul":
+                    if (Int32.TryParse(myCommand[2], out value)) {
+                        MUL(register, value);
+                        break;
+                    }
+                    else {
+                        char register2 = char.Parse(myCommand[2]);
+                        MUL(register, MyNotes[register2]);
+                        break;
+                    }
+                case "mod":
+                    if (Int32.TryParse(myCommand[2], out value)) {
+                        MOD(register, value);
+                        break;
+                    }
+                    else {
+                        char register2 = char.Parse(myCommand[2]);
+                        MOD(register, MyNotes[register2]);
+                        break;
+                    }
+                case "jgz":
+                    if (Int32.TryParse(myCommand[2], out value)) {
+                        JGZ(register, value);
+                        break;
+                    }
+                    else {
+                        char register2 = char.Parse(myCommand[2]);
+                        JGZ(register, MyNotes[register2]);
+                        break;
+                    }
+                case "snd":
+                    SND(register);
+                    break;
+                case "rcv":
+                    result = RCV(register);
+                    break;
 
+            }
             return result;
+        }
+
+        static void SET(char register, int value) {
+
+
+        }
+
+        static void ADD(char register, int value) {
+
+        }
+
+        static void MUL(char register, int value) {
+
+        }
+
+        static void MOD(char register, int value) {
+
+        }
+
+        static void SND(char register) {
+
+        }
+
+        static bool RCV(char register) {
+
+        }
+
+        static void JGZ(char register, int value) {
+
         }
 
         //Reads a list of commands from a file into a string array.
