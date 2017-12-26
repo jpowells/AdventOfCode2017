@@ -4,3 +4,10 @@ C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode18-1\bin\Debug\AdventOfC
 C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode18-1\obj\Debug\AdventOfCode18-1.csproj.CoreCompileInputs.cache
 C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode18-1\obj\Debug\AdventOfCode18-1.exe
 C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode18-1\obj\Debug\AdventOfCode18-1.pdb
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode18-1\bin\Debug\AdventOfCode18-1.exe.config
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode18-1\bin\Debug\AdventOfCode18-1.exe
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode18-1\bin\Debug\AdventOfCode18-1.pdb
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode18-1\obj\Debug\AdventOfCode18-1.csprojResolveAssemblyReference.cache
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode18-1\obj\Debug\AdventOfCode18-1.csproj.CoreCompileInputs.cache
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode18-1\obj\Debug\AdventOfCode18-1.exe
+C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode18-1\obj\Debug\AdventOfCode18-1.pdb

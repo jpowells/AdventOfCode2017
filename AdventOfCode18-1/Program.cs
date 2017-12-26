@@ -11,30 +11,35 @@ namespace AdventOfCode18_1 {
 
     class Program {
         static int CurrentPos = 0;
-        static bool BreakLoop = false;
-        static Dictionary<char, int> MyNotes = new Dictionary<char,int>();
-        static Stack<int> NotesPlayed = new Stack<int>();
+        static Dictionary<char, long> MyNotes = new Dictionary<char, long>();
+        static Stack<long> NotesPlayed = new Stack<long>();
 
         static void Main(string[] args) {
             //Read the input.
-            string myInput = @"C:\Users\ZomB\Source\Repos\AdventOfCode2017\AdventOfCode18-1\Input.txt";
+            string myInput = @"C:\Users\jpowell\source\repos\AdventOfCode2017\AdventOfCode18-1\Input.txt";
             string[] commands = ReadCommandsFromFile(myInput);
-            
-            for(; CurrentPos < commands.Length; CurrentPos++) {
-                if(ParseCommand(commands[CurrentPos])) {
+
+            for (; CurrentPos < commands.Length; CurrentPos++) {
+                if (ParseCommand(commands[CurrentPos])) {
                     break;
                 }
             }
+
+            Console.WriteLine(NotesPlayed.Pop().ToString());
+            Console.ReadKey();
         }
 
         static bool ParseCommand(string command) {
             bool result = false;
             string[] myCommand = command.Split(' ');
-            int value = 0;
+            long value = 0;
             char register = char.Parse(myCommand[1]);
-            switch(myCommand[0]) {
+            if (!MyNotes.ContainsKey(register)) {
+                MyNotes.Add(register, 0);
+            }
+            switch (myCommand[0]) {
                 case "set":
-                    if (Int32.TryParse(myCommand[2], out value)) {
+                    if (long.TryParse(myCommand[2], out value)) {
                         SET(register, value);
                         break;
                     }
@@ -44,7 +49,7 @@ namespace AdventOfCode18_1 {
                         break;
                     }
                 case "add":
-                    if (Int32.TryParse(myCommand[2], out value)) {
+                    if (Int64.TryParse(myCommand[2], out value)) {
                         ADD(register, value);
                         break;
                     }
@@ -54,7 +59,7 @@ namespace AdventOfCode18_1 {
                         break;
                     }
                 case "mul":
-                    if (Int32.TryParse(myCommand[2], out value)) {
+                    if (Int64.TryParse(myCommand[2], out value)) {
                         MUL(register, value);
                         break;
                     }
@@ -64,7 +69,7 @@ namespace AdventOfCode18_1 {
                         break;
                     }
                 case "mod":
-                    if (Int32.TryParse(myCommand[2], out value)) {
+                    if (Int64.TryParse(myCommand[2], out value)) {
                         MOD(register, value);
                         break;
                     }
@@ -74,7 +79,7 @@ namespace AdventOfCode18_1 {
                         break;
                     }
                 case "jgz":
-                    if (Int32.TryParse(myCommand[2], out value)) {
+                    if (long.TryParse(myCommand[2], out value)) {
                         JGZ(register, value);
                         break;
                     }
@@ -94,33 +99,40 @@ namespace AdventOfCode18_1 {
             return result;
         }
 
-        static void SET(char register, int value) {
-
-
-        }
-
-        static void ADD(char register, int value) {
+        static void SET(char register, long value) {
+            MyNotes[register] = value;
 
         }
 
-        static void MUL(char register, int value) {
+        static void ADD(char register, long value) {
+            MyNotes[register] =  MyNotes[register] + value;
 
         }
 
-        static void MOD(char register, int value) {
+        static void MUL(char register, long value) {
+            MyNotes[register] = MyNotes[register] * value;
+        }
 
+        static void MOD(char register, long value) {
+            MyNotes[register] = MyNotes[register] % value;
         }
 
         static void SND(char register) {
-
+            NotesPlayed.Push(MyNotes[register]);
         }
 
         static bool RCV(char register) {
-
+            if(MyNotes[register] != 0) {
+                return true;
+            }
+            return false;
         }
 
-        static void JGZ(char register, int value) {
-
+        static void JGZ(char register, long value) {
+            if(MyNotes[register] > 0) {
+                CurrentPos--;
+                CurrentPos += Convert.ToInt32(value);
+            }
         }
 
         //Reads a list of commands from a file into a string array.
