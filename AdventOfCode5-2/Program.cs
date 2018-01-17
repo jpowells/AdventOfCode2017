@@ -5,20 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace AdventOfCode5_2
-{
-    class Program
-    {
+namespace AdventOfCode5_2 {
+    class Program {
         static int stepCount = 0;
         static int currentIndex = 0;
 
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             string input = @"C:\Users\jpowell\source\repos\AdventOfCode\AdventOfCode5-1\Input.txt";
             int[] instructions = GetInstructions(input);
 
-            while (currentIndex >= 0 && currentIndex < instructions.Length)
-            {
+            while (currentIndex >= 0 && currentIndex < instructions.Length) {
                 Hop(instructions);
             }
 
@@ -26,28 +22,22 @@ namespace AdventOfCode5_2
             Console.ReadKey();
         }
 
-        static void Hop(int[] instructions)
-        {
+        static void Hop(int[] instructions) {
             stepCount++;
             int newIndex = currentIndex + instructions[currentIndex];
-            if (instructions[currentIndex] >= 3)
-            {
+            if (instructions[currentIndex] >= 3) {
                 instructions[currentIndex]--;
             }
-            else
-            {
+            else {
                 instructions[currentIndex]++;
             }
             currentIndex = newIndex;
         }
 
-        static int[] GetInstructions(string input)
-        {
+        static int[] GetInstructions(string input) {
             List<int> values = new List<int>();
-            using (StreamReader sr = new StreamReader(input))
-            {
-                while (!sr.EndOfStream)
-                {
+            using (StreamReader sr = new StreamReader(input)) {
+                while (!sr.EndOfStream) {
                     int newValue = Int32.Parse(sr.ReadLine());
                     values.Add(newValue);
                 }
